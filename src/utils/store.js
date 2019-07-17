@@ -7,12 +7,12 @@ const SET_STATE ='SET_STATE'
 
 export default new Vuex.Store({
   state: {
+    cutten:0,
     token:"",
     isLogin:false
   },
   mutations: {
     addCutten(state,res) {
-      // console.log(state ,res)
       state.cutten=res.cutten
     },
     setSTate(state){
@@ -21,7 +21,6 @@ export default new Vuex.Store({
   },
   actions: {
     addCutten({commit},res){ 
-      console.log(res)
       commit('addCutten',res)
     }
     // setStatr(res){
