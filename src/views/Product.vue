@@ -1,12 +1,10 @@
 <template>
   <div class="home">
-    首页
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+    产品中心
   </div>
 </template>
 
 <script>
-// import HelloWorld from "@/components/HelloWorld.vue"
 
 export default {
           name: "home",

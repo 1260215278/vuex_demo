@@ -1,5 +1,17 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="home">
+    关于海斯特
   </div>
 </template>
+
+<script>
+
+export default {
+          name: "home",
+          components: {
+          }
+}
+</script>
+<style lang="stylus" scoped>
+
+</style>
