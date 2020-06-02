@@ -8,7 +8,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: () => import('./views/Home.vue')
     },
     {
@@ -39,6 +39,10 @@ export default new Router({
       path: '/contactUs',
       name: 'contactUs',
       component: () => import('./views/ContactUs.vue')
+    },{
+      path:'*',
+      name: 'Home',
+      component: () => import('./views/Home.vue')
     }
   ]
 })
