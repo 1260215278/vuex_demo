@@ -160,12 +160,12 @@ export default {
   margin-top: 47px;
 }
 .header_nav_detail {
-  line-height: 15px;
   font-size: 14px;
   font-family: Microsoft YaHei;
   font-weight: 400;
   color: rgba(102, 102, 102, 1);
   margin-top: 22px;
+  line-height: 25px;
 }
 .header_nav_name {
   line-height: 18px;

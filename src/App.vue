@@ -104,6 +104,7 @@ export default {
 }
 #nav {
   max-width: 1200px;
+  min-width: 1200px;
   line-height: 100px;
   background: rgba(37, 36, 42, 1);
   justify-content: space-between;

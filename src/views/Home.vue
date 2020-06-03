@@ -40,7 +40,7 @@
         @click="toDetail(item)"
         :key="index+11"
       >
-        <img class="image_item_image" :src="item.imgUrl" alt srcset />
+        <img  :class="shopIndex  == index ? 'image_item_image image_item_image_active' : 'image_item_image'"  :src="item.imgUrl" alt srcset />
         <div class="image_item_footer">
           <div class="image_item_content">
             <div class="image_item_border"></div>
@@ -61,7 +61,7 @@
       <div class="title_text">我们的优势</div>
     </div>
     <div class="advantage">
-      <img class="advantage_image" src="../icon/首页2_08.jpg" alt srcset />
+      <img class="advantage_image" src="../icon/微信图片_20200603082203.jpg" alt srcset />
       <!-- item们离谱 -->
       <div class="advantage_list">
         <div class="advantage_list_item">
@@ -251,12 +251,14 @@ export default {
 }
 .footer_list_image {
   width: 14.84vw;
+  min-width: 179px;
   margin-bottom: 20px;
-  height: 118px;
+  /* height: 118px; */
   margin-right: 0.5vw;
 }
 .footer_list {
   width: 62.5vw;
+  min-width: 750px;
   margin: 0px auto;
   margin-top: 70px;
   display: flex;
@@ -274,8 +276,8 @@ export default {
   overflow: hidden;
 }
 .advantage_list_text2 {
-  line-height: 17px;
-  font-size: 18px;
+  /* line-height: 24px; */
+  font-size: 0.9vw;
   font-family: Source Han Sans SC;
   font-weight: 400;
   color: rgba(102, 102, 102, 1);
@@ -291,7 +293,7 @@ export default {
 }
 .advantage_list_right {
   height: 80px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .advantage_list_item {
   flex: 1;
@@ -306,16 +308,19 @@ export default {
   margin-top: 80px;
   justify-content: space-between;
   width: 46.8vw;
+  min-width: 561.6px;
 }
 .advantage_list_image {
-  height: 50px;
-  width: 2.6vw;
+  /* height: 50px; */
+  /* width: 2.6vw; */
+  min-width: 31.2px;
   margin-right: 25px;
 }
 .advantage_image {
   position: absolute;
   width: 21.14vw;
-  height: 540px;
+  min-width: 235px;
+  /* height: 540px; */
   right: -5.52vw;
   top: 100px;
   z-index: 99;
@@ -324,6 +329,7 @@ export default {
   position: relative;
   margin: 0px auto;
   width: 62.5vw;
+  min-width: 750px;
   /* overflow: hidden; */
   padding-top: 0.1px;
   height: 600px;
@@ -372,7 +378,8 @@ export default {
 .image_item {
   position: relative;
   flex: 1;
-  height: 700px;
+  /* height: 700px; */
+  overflow: hidden;
 }
 .image_item:hover {
   box-shadow: 0px 4px 20px 0px rgba(153, 153, 153, 0.3);
@@ -381,6 +388,12 @@ export default {
 .image_item_image {
   height: 100%;
   width: 100%;
+   transition: all 0.6s;
+    -ms-transition: all 0.8s;
+}
+.image_item_image:hover{
+   transform: scale(1.1);
+    -ms-transform: scale(1.1);
 }
 .image_list {
   display: flex;
@@ -434,7 +447,9 @@ export default {
 }
 .top_foter_div4 {
   width: 9.375vw;
+
   height: 50px;
+  max-width: 112.5px;
   background: rgba(23, 98, 224, 1);
   border-radius: 4px;
   margin-left: 4.16vw;
@@ -475,6 +490,7 @@ export default {
   font-weight: 500;
   line-height: 42px;
   margin-top: 40px;
+  
 }
 .top_foter {
   position: absolute;
@@ -484,16 +500,20 @@ export default {
   height: 370px;
   background: rgba(37, 36, 42, 0.3);
   z-index: 99;
+  min-width: 312px;
 }
 .banner_image {
   height: 822px;
   width: 100vw;
+  min-width: 1200px;
 }
 .carousel {
   height: 822px;
+  min-width: 1200px;
 }
-.heder {
+.heder ,#nav{
   position: relative;
+  min-width: 1200px;
 }
 .footer_title {
   color: #555555;
@@ -507,6 +527,12 @@ export default {
 }
 .image_item_english_active {
   font-size: 22px;
+}
+.image_item_image_active{
+
+}
+.home{
+  min-width: 1200px;
 }
 </style>
 <style lang="stylus" scoped></style>
