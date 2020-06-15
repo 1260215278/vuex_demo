@@ -25,10 +25,10 @@
         v-for="(item,index) in shopList"
         :key="index"
       >
-        <img class="shop_image" :src="item.surfacePlot" alt srcset />
+        <img  :class="shopIndex == index ? 'shop_image shop_image_active' :'shop_image'" :src="item.surfacePlot" alt srcset />
         <div class="shop_name">{{item.name}}</div>
         <div class="shop_tips" v-if="shopIndex != index">{{item.context}}</div>
-        <div v-if="shopIndex == index" class="shop_btn" @click="getDetail(item.id)">查看详情</div>
+        <div v-if="shopIndex == index" class="shop_btn  animate__animated animate__fadeInUp" @click="getDetail(item.id)">查看详情</div>
       </div>
     </div>
   </div>
@@ -50,14 +50,13 @@ export default {
   created() {
     _this = this;
     this.getBannerList();
-
     if (this.$route.query && this.$route.query.id) {
       this.getShopList(this.$route.query.id);
     }
   },
   methods: {
     getDetail(id) {
-      _this.$apis.getProductById({ id }).then(res => {});
+        this.$router.push({name:'Details',query:{id:id}})
     },
     // 获取轮播图和分类
     getBannerList() {
@@ -102,6 +101,11 @@ export default {
 };
 </script>
 <style  scoped>
+.banner_image{
+    width: 100vw;
+    height: 100%;
+  min-width: 1200px;
+}
 .shop_tips {
   line-height: 15px;
   font-size: 14px;
@@ -126,10 +130,16 @@ export default {
   width: 13.8vw;
   display: block;
   height: 160px;
+  min-width: 165.6px;
+}
+.shop_image_active{
+   transform: scale(1.1);
+    -ms-transform: scale(1.1);
 }
 .shop_btn {
   display: block;
   width: 10.41vw;
+  min-width: 120px;
   height: 44px;
   background: rgba(23, 98, 224, 1);
   border-radius: 4px;
@@ -144,7 +154,7 @@ export default {
 }
 .shop_itme {
   width: 15vw;
-  /* padding: 5px; */
+  min-width: 290px;
   height: 318px;
   background: rgba(255, 255, 255, 1);
   margin-bottom: 14px;
@@ -158,6 +168,7 @@ export default {
 
 .shop {
   width: 62.5vw;
+  min-width: 1200px;
   display: flex;
   margin: 0px auto;
   align-items: center;
@@ -166,6 +177,7 @@ export default {
 }
 .tabs_item {
   width: 12.5vw;
+  min-width: 180px;
   height: 60px;
   text-align: center;
   line-height: 60px;
@@ -180,10 +192,12 @@ export default {
 }
 .carousel {
   width: 100%;
+  min-width: 1200px;
   height: 650px;
 }
 .tabs {
   width: 100%;
+  min-width: 1200px;
   height: 60px;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.04);
@@ -194,5 +208,7 @@ export default {
 .home {
   background-color: #f5f5f9;
   overflow: hidden;
+  width: 100%;
+  min-width: 1200px;
 }
 </style>

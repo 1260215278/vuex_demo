@@ -28,61 +28,61 @@
           <div class="job_name">{{item.title}}</div>
           <div class="job_top_right foucs" @click="setIme(index)">{{ item.isShow ? '收起': '展开'}}</div>
         </div>
-        <div :class="item.isShow ? 'job_tips' : 'job_tips  job_tips_avtive'">岗位职责：</div>
-
-        <div :class="item.isShow ? 'job_detail' : 'job_detail  job_detail_avtive'">
-          <pre  class="job_detail_item">
-            {{item.context}}
-
-          </pre>
+        <div :class="item.isShow ? 'job_antion job_antion_avtive' : 'job_antion  '">
+          <div class="job_tips">岗位职责：</div>
+          <div class="job_detail">
+            <pre class="job_detail_item">{{item.context}}</pre>
+          </div>
         </div>
       </div>
-
-
     </div>
   </div>
 </template>
 
 <script>
-var _this
+var _this;
 export default {
   name: "home",
   components: {},
-  data(){
-    return{
-      localInfo:{},
-      JobList:[]
-    }
+  data() {
+    return {
+      localInfo: {},
+      JobList: []
+    };
   },
-  created(){
-    _this=this
-    this.getAllInfo()
+  created() {
+    _this = this;
+    this.getAllInfo();
   },
-  methods:{
-    setIme(index){
-      this.JobList[index].isShow = !this.JobList[index].isShow
+  methods: {
+    setIme(index) {
+      this.JobList[index].isShow = !this.JobList[index].isShow;
     },
-      getAllInfo(){
-        _this.$apis.getPJobContent().then(res=>{
-          _this.localInfo=res.data.data.lsContactWay[0]
-          res.data.data.lsJobContent.forEach(item=>{
-            item.isShow=true
-          })
-          _this.JobList=res.data.data.lsJobContent
-          
-        })
-      }
+    getAllInfo() {
+      _this.$apis.getPJobContent().then(res => {
+        _this.localInfo = res.data.data.lsContactWay[0];
+        res.data.data.lsJobContent.forEach(item => {
+          item.isShow = true;
+        });
+        _this.JobList = res.data.data.lsJobContent;
+      });
+    }
   }
 };
 </script>
 <style  scoped>
+
+
 .job_detail_item {
   font-size: 0.9vw;
   font-family: Microsoft YaHei;
   font-weight: 400;
   line-height: 32px;
   color: rgba(102, 102, 102, 1);
-   text-indent:-3.1rem;
+  /* text-indent: -2rem; */
+  transition: all 1s;
+ text-indent:0;
+ white-space: none;
 }
 .job_detail {
   line-height: 14px;
@@ -91,7 +91,7 @@ export default {
   font-weight: 400;
   color: rgba(102, 102, 102, 1);
   margin-top: 18px;
-  transition: all .5s;
+  transition: all 1s;
 }
 .job_tips {
   line-height: 16px;
@@ -100,7 +100,7 @@ export default {
   font-weight: 400;
   color: rgba(0, 0, 0, 1);
   margin-top: 30px;
-  transition: all .5s;
+  transition: all 1s;
 }
 .job_top {
   display: flex;
@@ -118,18 +118,17 @@ export default {
   margin-top: 53px;
   padding-bottom: 45px;
 }
-.job_tips_avtive{
+.job_tips_avtive {
   height: 0px;
-  display: none;
 }
-.job_detail_avtive{
+.job_detail_avtive {
   height: 0px;
-  display: none;
 }
 .job_list {
   width: 62.5vw;
+  min-width: 750px;
   margin: 0px auto;
-  height: 1580px;
+  min-height: 1000px;
   margin-top: 59px;
   background: rgba(255, 255, 255, 1);
   padding: 0px 2.6vw;
@@ -192,9 +191,11 @@ export default {
 .header_nav_right {
   height: 100%;
   width: 39vw;
+  min-width: 468px;
 }
 .header_nav {
   width: 62.5vw;
+  min-width: 750px;
   height: 500px;
   background: rgba(255, 255, 255, 1);
   box-shadow: 0px 2px 40px 0px rgba(0, 0, 0, 0.2);
@@ -218,6 +219,7 @@ export default {
 }
 .header {
   width: 100%;
+  min-width: 1200px;
   height: 436px;
   position: relative;
   background-image: url("../icon/联系我们_banner图.jpg");
@@ -228,5 +230,18 @@ export default {
 .home {
   background-color: #f5f5f9;
   overflow: hidden;
+}
+.home {
+  width: 100%;
+  min-width: 1200px;
+}
+.job_antion{
+   transition: all 1s;
+   overflow: hidden;
+   height: 1px;
+}
+.job_antion_avtive{
+  height: 300px;
+   overflow: none;
 }
 </style>

@@ -3,8 +3,8 @@
     <!-- 头部 -->
     <div class="heder">
       <!-- 走马灯 -->
-      <el-carousel class="carousel">
-        <el-carousel-item class="carousel" v-for="(item,index) in bannerList" :key="index">
+      <el-carousel class="carousel" indicator-position="none">
+        <el-carousel-item class="carousel"   v-for="(item,index) in bannerList" :key="index">
           <img class="banner_image" :src="item.imgUrl" alt srcset />
         </el-carousel-item>
       </el-carousel>
@@ -13,7 +13,7 @@
         <div class="top_foter_div1">实力品牌</div>
         <div class="top_foter_div2">"智"慧家居</div>
         <div class="top_foter_div3">伴您健康生活</div>
-        <div class="top_foter_div4">查看详情</div>
+        <div class="top_foter_div4 foucs" @click="toDetial()">查看详情</div>
       </div>
     </div>
     <!-- 下面的文字 -->
@@ -46,7 +46,7 @@
             <div class="image_item_border"></div>
             <div
               :class="shopIndex  == index ? 'image_item_name image_item_active' : 'image_item_name'"
-            >{{item.name}}</div>
+            >{{item.nameHome}}</div>
             <div class="image_item_border"></div>
           </div>
           <div
@@ -219,7 +219,7 @@ export default {
   },
   methods: {
     toDetail(item){
-        this.$router.push({ name: 'product', query: { id: item.id }})
+        this.$router.push({ path:'/Product', query: { id: item.id }})
     },
     leave() {
       this.shopIndex = -1;
@@ -227,10 +227,11 @@ export default {
     enter(res) {
       this.shopIndex = res;
     },
+    toDetial(){
+         this.$router.push({ path:'/Product', query: {  }})
+    },
     getBanner() {
-      console.log(_this.$apis);
       _this.$apis.getHomeView().then(res => {
-        console.log(res);
         // _this.iamgeList=res.data.data.businessPartmer
         _this.typeList = res.data.data.classIfty;
       });
@@ -447,9 +448,8 @@ export default {
 }
 .top_foter_div4 {
   width: 9.375vw;
-
   height: 50px;
-  max-width: 112.5px;
+  min-width: 112.5px;
   background: rgba(23, 98, 224, 1);
   border-radius: 4px;
   margin-left: 4.16vw;
@@ -511,7 +511,7 @@ export default {
   height: 822px;
   min-width: 1200px;
 }
-.heder ,#nav{
+.heder {
   position: relative;
   min-width: 1200px;
 }

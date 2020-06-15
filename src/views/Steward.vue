@@ -84,10 +84,12 @@
           <el-input
             class="opinion_Card_text"
             type="textarea"
-            :rows="8"
+            rows="8"
+            resize="none"
             placeholder="我们每天会关注您的反馈，不断优化产品，为您提供更好的服务！"
             v-model="textarea"
           ></el-input>
+          <!-- <textarea  ut type="textarea"   class="opinion_Card_text" placeholder="我们每天会关注您的反馈，不断优化产品，为您提供更好的服务！" /></textarea > -->
           <el-input class="opinion_Card_input" placeholder="请输入你的姓名" v-model="input" clearable></el-input>
           <el-input class="opinion_Card_input" placeholder="请输入联系电话" v-model="input1" clearable></el-input>
           <div class="opinion_Card_btn foucs" @click="submit()">提交</div>
@@ -101,20 +103,46 @@
 export default {
   name: "home",
   components: {},
-  data(){
-    return{
-       textarea:"",
-          input:"",
-          input1:"",
-    }
+  data() {
+    return {
+      textarea: "",
+      input: "",
+      input1: ""
+    };
   },
-  methods:{
-    submit(){
-      this.$message({
+  methods: {
+    submit() {
+      if (!this.textarea || !this.input || !this.input1) {
+        this.$message({
           showClose: true,
-         
-          message: '提交成功！',
-          type: 'success'
+          message: "请填写完整信息",
+          type: "error"
+        });
+        return;
+      }
+      this.$apis
+        .addLsFeedback({
+          context: this.textarea,
+          name: this.input,
+          phone: this.input1
+        })
+        .then(res => {
+          if (res.data.code == 200) {
+            this.textarea = "";
+            this.input = "";
+            this.input1 = "";
+            this.$message({
+              showClose: true,
+              message: "提交成功！",
+              type: "success"
+            });
+          } else {
+            this.$message({
+              showClose: true,
+              message: "提交失败",
+              type: "error"
+            });
+          }
         });
     }
   }
@@ -125,13 +153,13 @@ export default {
   flex: 1;
 }
 .opinion_Card_image {
-  width: 3.85vw;
+  width: 75px;
   height: 74px;
   border-radius: 50%;
   margin-right: 1.56vw;
 }
 .opinion_Card {
-  width: 37vw;
+  width: 710px;
   margin-top: 60px;
   height: 540px;
   background: rgba(255, 255, 255, 1);
@@ -142,6 +170,7 @@ export default {
 }
 .opinion_border {
   width: 3.125vw;
+  min-width: 38px;
   height: 4px;
   margin-top: 16px;
   background: rgba(23, 98, 224, 1);
@@ -156,6 +185,7 @@ export default {
 }
 .opinion_Card_btn {
   width: 9.375vw;
+  min-width: 112px;
   height: 50px;
   background: rgba(23, 98, 224, 1);
   border-radius: 4px;
@@ -169,6 +199,7 @@ export default {
 }
 .opinion_Card_input {
   width: 15.625vw;
+  min-width: 187.5px;
   height: 40px;
   margin-top: 20px;
   display: block;
@@ -176,13 +207,23 @@ export default {
 }
 .opinion_Card_text {
   width: 25vw;
+  min-width: 300px;
   margin-top: 17px;
-  height: 177px;
+  /* height: 174px; */
+  /* max-height: 174px; */
   overflow: hidden;
-  border: 1px solid rgba(235, 236, 240, 1);
+  /* border:1px solid rgba(235,236,240,1); */
+  /* padding:   20px; */
+  line-height: 20px;
+  resize: none;
+  font-size: 14px;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
 }
 .opinion {
   width: 100%;
+  min-width: 1200px;
   height: 920px;
   background-image: url("../icon/服务管家_意见反馈背景图.jpg");
   background-size: 100% 100%;
@@ -211,10 +252,13 @@ export default {
 .idea_image {
   height: 80px;
   width: 4.16vw;
+  min-width: 50px;
   margin-top: 61px;
 }
 .idea_top {
   width: 3.02vw;
+
+  min-width: 36px;
   height: 58px;
   border-radius: 0 0 0 58px;
   position: absolute;
@@ -233,6 +277,7 @@ export default {
 .idea_item {
   width: 19.8vw;
   height: 280px;
+  min-width: 240px;
   margin: 0px 15px;
   margin-bottom: 30px;
   background: rgba(56, 56, 80, 1);
@@ -278,6 +323,7 @@ export default {
 .idea {
   width: 100%;
   height: 920px;
+  min-width: 1200px;
   background-image: url("../icon/服务管家_服务理念背景图.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -290,6 +336,7 @@ export default {
 }
 .servesev_tips_tips {
   width: 19.5vw;
+  min-width: 234px;
   height: 128px;
   font-size: 16px;
   font-family: Microsoft YaHei;
@@ -313,6 +360,7 @@ export default {
 }
 .serve_tips {
   width: 25vw;
+  min-width: 300px;
   height: 334px;
   background: rgba(255, 255, 255, 1);
   box-shadow: 0px 6px 28px 2px rgba(17, 77, 178, 0.16);
@@ -324,10 +372,12 @@ export default {
 }
 .serve_image {
   width: 52.08vw;
+  min-width: 624px;
   height: 500px;
 }
 .serve {
   width: 52.08vw;
+  min-width: 624px;
   height: 500px;
   position: relative;
   margin: 0px auto;
@@ -344,6 +394,7 @@ export default {
 }
 .header_tips {
   width: 25.41vw;
+  min-width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -380,10 +431,15 @@ export default {
 }
 .header {
   width: 100%;
+  min-width: 1200px;
   min-height: 650px;
   background-image: url("../icon/服务管家_banner图.jpg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   overflow: hidden;
+}
+.home {
+  width: 100%;
+  min-width: 1200px;
 }
 </style>

@@ -38,10 +38,10 @@
       </div>
     </header>
 
-    <!-- 中部关于海斯特 -->
+    <!-- 中部关于海思特 -->
     <div class="all_Hyster">
       <div class="Hyster">
-        <div class="Hyster_title animate__animated ">关于海斯特</div>
+        <div class="Hyster_title animate__animated ">关于海思特</div>
         <div class="Hyster_detial animate__animated animate__slideInUp">
           海思特创建于2003年以”智创人们的健康生活”为使命，不断研发具有高科技含量的智能家居产品，逐步扩大制造规模，建立并
           完善产，供，销布局、可控性强、强大的营销体系，高效的运营系统及特管家服务来满足客户的需求，提升公司品牌影响力，巩固
@@ -170,6 +170,7 @@ export default {
 .year_item2 {
   position: absolute;
   width: 25vw;
+  min-width: 300px;
   border-top: 1px dashed #e1e3e6;
   text-align: left;
   font-size: 14px;
@@ -182,6 +183,7 @@ export default {
 }
 .year_item2_text {
   width: 15vw;
+  min-width: 180px;
   background: rgba(255, 255, 255, 1);
   box-shadow: 0px 4px 20px 0px rgba(71, 97, 148, 0.3);
   border-radius: 4px;
@@ -196,6 +198,7 @@ export default {
   box-shadow: 0px 4px 20px 0px rgba(71, 97, 148, 0.3);
   border-radius: 4px;
   width: 15vw;
+  min-width: 180px;
   font-size: 14px;
   font-family: Microsoft YaHei;
   font-weight: 400;
@@ -205,6 +208,7 @@ export default {
 .year_item1 {
   position: absolute;
   width: 25vw;
+  min-width: 300px;
   border-top: 1px dashed #e1e3e6;
   text-align: left;
   height: 64px;
@@ -216,6 +220,7 @@ export default {
 }
 .year_item1_rune{
   width: 23.5vw;
+  min-width: 282px;
   left: -23.5vw;
 }
 .item1 {
@@ -311,6 +316,7 @@ export default {
 .all_Hyster {
   overflow: hidden;
   width: 100%;
+  min-width: 1200px;
   min-height: 667px;
   background-image: url("../icon/关于海思特_简介背景图.jpg");
   background-size: 100% 100%;
@@ -338,6 +344,7 @@ export default {
   /* text-align: center; */
   margin: 0px auto;
   width: 53.5vw;
+  min-width: 642px;
   font-size: 18px;
   font-family: Microsoft YaHei;
   font-weight: 400;
@@ -347,6 +354,7 @@ export default {
 }
 .Hyster {
   width: 62.5vw;
+  min-width: 750px;
   margin: 0px auto;
   background-image: url("../icon/关于海思特_02.png");
   background-size: 100% 100%;
@@ -367,6 +375,7 @@ export default {
 .about_item_tips {
   width: 11.86vw;
   line-height: 15px;
+  min-width: 142px;
   font-size: 14px;
   font-family: Microsoft YaHei;
   font-weight: 400;
@@ -385,7 +394,8 @@ export default {
 }
 .about_item_image {
   height: 60px;
-  width: 3.125vw;
+  /* width: 3.125vw; */
+  /* min-width: 40px; */
   margin-right: 1vw;
 }
 .about_item {
@@ -401,6 +411,7 @@ export default {
   margin: auto;
   bottom: -76px;
   width: 62.5vw;
+  min-width: 750px;
   height: 152px;
   background: linear-gradient(
     0deg,
@@ -440,6 +451,7 @@ export default {
 }
 .header {
   width: 100%;
+  min-width: 1200px;
   height: 650px;
   background-image: url("../icon/关于海思特_banner图.jpg");
   background-size: 100% 100%;
@@ -449,5 +461,9 @@ export default {
   align-items: center;
   flex-direction: column;
   box-sizing: border-box;
+}
+.home{
+ width: 100%;
+  min-width: 1200px;
 }
 </style>

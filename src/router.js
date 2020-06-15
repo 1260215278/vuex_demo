@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 export default new Router({
+  linkActiveClass:"router-link-active",
   mode: 'hash',
   base: process.env.BASE_URL,
   routes: [
@@ -22,8 +23,8 @@ export default new Router({
       component: () => import('./views/Attract.vue')
     },
     {
-      path: '/product',
-      name: 'product',
+      path: '/Product',
+      name: 'Product',
       component: () => import('./views/Product.vue')
     },
     {
@@ -39,7 +40,13 @@ export default new Router({
       path: '/contactUs',
       name: 'contactUs',
       component: () => import('./views/ContactUs.vue')
-    },{
+    },
+    {
+      path: '/Product/Details',
+      name: 'Details',
+      component: () => import('./views/Details.vue')
+    },
+    {
       path:'*',
       name: 'Home',
       component: () => import('./views/Home.vue')

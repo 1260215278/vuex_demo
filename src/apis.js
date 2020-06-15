@@ -79,6 +79,19 @@ api.getProductById=function(params){
 }
 
 
+// 反馈接口
+api.addLsFeedback=function(data){
+    return request({
+        url:"/ls/view/addLsFeedback",
+        method:'post',
+        data
+        // query:query
+        // data
+    })
+}
+
+
+
 
 
 export default api
