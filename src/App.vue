@@ -178,14 +178,6 @@ export default {
 .foucs {
   cursor: pointer;
 }
-
-// .el-carousel__arrow--left {
-//   display: none;
-// }
-
-// .el-carousel__arrow--right {
-//   display: none;
-// }
 </style>
 
 <style scoped>

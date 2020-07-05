@@ -3,8 +3,8 @@
     <!-- 头部 -->
     <div class="heder">
       <!-- 走马灯 -->
-      <el-carousel class="carousel"   @change="change">
-        <el-carousel-item class="carousel"   v-for="(item,index) in bannerList" :key="index">
+      <el-carousel class="carousel"  height="822px"  @change="change">
+        <el-carousel-item class="carousel"  height="822px"  v-for="(item,index) in bannerList" :key="index">
           <img class="banner_image" :src="item.imgUrl" alt srcset />
         </el-carousel-item>
       </el-carousel>
