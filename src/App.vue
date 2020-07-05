@@ -10,7 +10,7 @@
           <!-- <router-link class="item" to="/Attract">品牌招商</router-link> -->
           <div class="item foucs">品牌介绍</div>
           <div class="item foucs">品牌招商</div>
-
+          <!-- <div class="item foucs">产品中心</div> -->
           <router-link class="item" to="/Product">
             <div @mouseleave="leave()">
               <span @mouseenter="enter()">产品中心</span>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="header_bttom_ritgh">
-          <img class="bttom_ritgh_image" :src="headerItem.imgUrl" alt srcset />
+          <img class="bttom_ritgh_image" :src="headerItem.imgUrlProduct" alt srcset />
           <div class="bttom_ritgh_titie">休闲舒适生活</div>
           <div class="bttom_ritgh_tips">快乐因你而生></div>
         </div>
@@ -93,7 +93,7 @@
     </footer>
      <a class="aHref" target="_blank"  href="http://beian.miit.gov.cn/">
     <div class="bottom">
-     佛山市厦润健康科技有限公司 版权所有 粤ICP备17156480号
+          佛山市海思特家居有限公司版权所有 粤ICP备17156480号
     </div>
     </a>
   </div>
@@ -179,13 +179,13 @@ export default {
   cursor: pointer;
 }
 
-.el-carousel__arrow--left {
-  display: none;
-}
+// .el-carousel__arrow--left {
+//   display: none;
+// }
 
-.el-carousel__arrow--right {
-  display: none;
-}
+// .el-carousel__arrow--right {
+//   display: none;
+// }
 </style>
 
 <style scoped>

@@ -25,7 +25,7 @@
         v-for="(item,index) in shopList"
         :key="index"
       >
-        <img  :class="shopIndex == index ? 'shop_image shop_image_active' :'shop_image'" :src="item.surfacePlot" alt srcset />
+        <img  :class="shopIndex == index ? 'shop_image shop_image_active' :'shop_image'" :src="item.infoImgUrl" alt srcset />
         <div class="shop_name">{{item.name}}</div>
         <div class="shop_tips" v-if="shopIndex != index">{{item.context}}</div>
         <div v-if="shopIndex == index" class="shop_btn  animate__animated animate__fadeInUp" @click="getDetail(item.id)">查看详情</div>
@@ -56,7 +56,8 @@ export default {
   },
   methods: {
     getDetail(id) {
-        this.$router.push({name:'Details',query:{id:id}})
+         return
+        // this.$router.push({name:'Details',query:{id:id}})
     },
     // 获取轮播图和分类
     getBannerList() {

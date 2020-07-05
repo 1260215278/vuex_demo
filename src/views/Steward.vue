@@ -38,19 +38,19 @@
       <div class="idea_border"></div>
       <div class="idea_tips">12361特管家一站式服</div>
       <div class="idea_list">
-        <div class="idea_item">
+        <div class="idea_item foucs" >
           <div class="idea_top">1</div>
           <img class="idea_image" src="../icon/服务管家_04_13.png" alt srcset />
           <div class="idea_item_title">高效专业</div>
           <div class="idea_item_tips">生产完成第一时间知会客户</div>
         </div>
-        <div class="idea_item idea_item2">
+        <div class="idea_item idea_item2 foucs">
           <div class="idea_top">2</div>
           <img class="idea_image" src="../icon/服务管家_04_17.png" alt srcset />
           <div class="idea_item_title">贴心服务</div>
           <div class="idea_item_tips idea_item_tips2">安装配送完成后第二天回访客户</div>
         </div>
-        <div class="idea_item">
+        <div class="idea_item foucs">
           <div class="idea_top">3</div>
           <img class="idea_image" src="../icon/服务管家_04_21.png" alt srcset />
           <div class="idea_item_title">企业信誉</div>
@@ -58,13 +58,13 @@
         </div>
       </div>
       <div class="idea_list">
-        <div class="idea_item">
+        <div class="idea_item foucs">
           <div class="idea_top">4</div>
           <img class="idea_image" src="../icon/服务管家_04_37.png" alt srcset />
           <div class="idea_item_title">温馨陪伴</div>
           <div class="idea_item_tips">使用半年提醒服务</div>
         </div>
-        <div class="idea_item">
+        <div class="idea_item foucs">
           <div class="idea_top">5</div>
           <img class="idea_image" src="../icon/服务管家_04_41.png" alt srcset />
           <div class="idea_item_title">使用无忧</div>
@@ -250,7 +250,7 @@ export default {
   color: rgba(102, 102, 102, 1);
 }
 .idea_image {
-  height: 80px;
+  /* height: 80px; */
   width: 4.16vw;
   min-width: 50px;
   margin-top: 61px;
@@ -287,6 +287,19 @@ export default {
   display: flex;
   align-items: center;
   flex-direction: column;
+  transition: all .3s;
+}
+.idea_item:hover{
+  box-shadow:0px 2px 10px 0px rgba(255, 255, 255, 0.5);
+}
+.idea_item:hover > .idea_image {
+  width: 4.5vw;
+}
+.idea_item:hover >.idea_item_title{
+  font-size: 1.1vw;
+}
+.idea_item:hover >.idea_item_tips{
+  font-size: 0.8vw;
 }
 .idea_item2 {
   color: rgba(0, 0, 0, 1);

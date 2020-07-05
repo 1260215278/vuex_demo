@@ -8,5 +8,11 @@ module.exports = {
       preProcessor: "stylus",
       patterns: [path.resolve(__dirname, "./src/compontCss/stylus.styl")]
     }
+  },
+  configureWebpack:{
+    externals: {
+      // 'vue': 'Vue',
+      // 'element-ui': 'ELEMENT'
+    }
   }
 }

@@ -18,7 +18,7 @@
     <!-- 加入我们 -->
 
     <div class="job_add">加入我们</div>
-    <div class="job_english">JOIN USF</div>
+    <div class="job_english">JOIN US</div>
 
     <!-- 工作列表 -->
 
@@ -128,7 +128,7 @@ export default {
   width: 62.5vw;
   min-width: 750px;
   margin: 0px auto;
-  min-height: 1000px;
+  /* min-height: 1000px; */
   margin-top: 59px;
   background: rgba(255, 255, 255, 1);
   padding: 0px 2.6vw;
@@ -236,12 +236,14 @@ export default {
   min-width: 1200px;
 }
 .job_antion{
-   transition: all 1s;
+   transition: all .5s;
    overflow: hidden;
-   height: 1px;
+   max-height: 1px;
 }
 .job_antion_avtive{
-  height: 300px;
-   overflow: none;
+  /* height: 400px; */
+  /* display: block; */
+   /* overflow: none; */
+   max-height: 500px;
 }
 </style>

@@ -3,13 +3,13 @@
     <!-- 头部 -->
     <div class="heder">
       <!-- 走马灯 -->
-      <el-carousel class="carousel" indicator-position="none">
+      <el-carousel class="carousel"   @change="change">
         <el-carousel-item class="carousel"   v-for="(item,index) in bannerList" :key="index">
           <img class="banner_image" :src="item.imgUrl" alt srcset />
         </el-carousel-item>
       </el-carousel>
       <!-- 走马灯上浮层 -->
-      <div class="top_foter">
+      <div class="top_foter" v-if="initialIndex==0">
         <div class="top_foter_div1">实力品牌</div>
         <div class="top_foter_div2">"智"慧家居</div>
         <div class="top_foter_div3">伴您健康生活</div>
@@ -210,7 +210,8 @@ export default {
       bannerList: [],
       typeList: [],
       iamgeList: [],
-      shopIndex: -1
+      shopIndex: -1,
+      initialIndex:0
     };
   },
   created() {
@@ -218,6 +219,9 @@ export default {
     this.getBanner();
   },
   methods: {
+    change(res){
+      this.initialIndex=res
+    },
     toDetail(item){
         this.$router.push({ path:'/Product', query: { id: item.id }})
     },
@@ -503,12 +507,12 @@ export default {
   min-width: 312px;
 }
 .banner_image {
-  height: 822px;
+  min-height:  822px;
   width: 100vw;
   min-width: 1200px;
 }
 .carousel {
-  height: 822px;
+  min-height:  822px;
   min-width: 1200px;
 }
 .heder {
