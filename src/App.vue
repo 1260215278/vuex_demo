@@ -74,7 +74,7 @@
           <div class="footer_item_list title">联系我们</div>
           <div class="flex footer_item_list">
             <img class="footer_icon" src="./icon/zuoji.png" alt srcset />
-            400-889-2230
+            13928285123
           </div>
           <div class="flex footer_item_list">
             <img class="footer_icon" src="./icon/weixin.png" alt srcset />
