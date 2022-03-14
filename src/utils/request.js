@@ -5,7 +5,7 @@ import { promised } from "q"
 import { Server } from "http"
 
 const servie = axios.create({
-  baseURL: "http://8.129.188.59:8080/", //服务器地址
+  baseURL: "http://112.74.44.69:8080/", //服务器地址
   timeout: 3000 //请求超时间
 })
 

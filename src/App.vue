@@ -41,7 +41,7 @@
         </div>
 
         <div class="header_bttom_ritgh">
-          <img class="bttom_ritgh_image" :src="headerItem.imgUrlProduct" alt srcset />
+          <img class="bttom_ritgh_image" :src=" headerItem?  headerItem.imgUrlProduct : ''" alt srcset />
           <div class="bttom_ritgh_titie">休闲舒适生活</div>
           <div class="bttom_ritgh_tips">快乐因你而生></div>
         </div>
@@ -107,12 +107,16 @@ export default {
       tabList: [],
       isShow: false,
       Vuekey: 2222,
-      headerItem: {}
+      headerItem: {
+      imgUrlProduct:""
+
+      }
     };
   },
   created() {
     _this = this;
-    this.getBannerList();
+    this.getBannerList(
+    );
   },
   methods: {
     enterItem(item) {
@@ -126,6 +130,8 @@ export default {
       _this.$apis.getClassifyList().then(res => {
         _this.tabList = res.data.data;
         _this.headerItem = _this.tabList[0];
+
+        console.log('headerItem-',_this.headerItem)
       });
     },
     enter() {
